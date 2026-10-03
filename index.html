@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f7f5ef" />
+    <meta name="description" content="متجر إلكتروني تجريبي لعرض عشرة منتجات." />
+    <title>متجري — متجر إلكتروني تجريبي</title>
+    <link rel="preconnect" href="https://dummyjson.com" />
+    <link rel="preconnect" href="https://cdn.dummyjson.com" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div class="announcement">
+       <h1>ملابس رجالي</h1>
+    </div>
+
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="متجري — الصفحة الرئيسية">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none"><path d="M7.5 11h17l1.5 15h-20L7.5 11Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 12V9a4 4 0 0 1 8 0v3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M12 18c2 2 6 2 8 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </span>
+        <span class="brand-copy"><strong>متجري</strong></span>
+      </a>
+
+      <nav class="main-nav" aria-label="التنقل الرئيسي">
+        <a href="#collection">تسوّق</a>
+        <a href="#about">عن المتجر</a>
+      </nav>
+
+      <div class="header-actions">
+        <label class="search-box" for="search-input">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></svg>
+          <input id="search-input" type="search" placeholder="ابحث عن منتج..." autocomplete="off" />
+          <kbd>⌕</kbd>
+        </label>
+        <button class="icon-button favorites-toggle" id="favorites-toggle" type="button" aria-pressed="false" aria-label="عرض المفضلة" title="عرض المفضلة">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 8.7c0 5-8.4 10-8.4 10s-8.4-5-8.4-10A4.4 4.4 0 0 1 12 6.1a4.4 4.4 0 0 1 8.4 2.6Z"/></svg>
+          <span class="count-badge" id="favorite-count">0</span>
+        </button>
+        <button class="cart-trigger" id="cart-trigger" type="button" aria-label="فتح سلة التسوق">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.1 11.2a2 2 0 0 0 2 1.6h8.8a2 2 0 0 0 1.9-1.4L22 8H6"/><circle cx="9.5" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>
+          <span>السلة</span><span class="count-badge cart-count" id="cart-count">0</span>
+        </button>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero page-shell" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-line"></span> قسم الملابس الرجالي</p>
+          <h1 id="hero-title">ملابس رجالي،<br />بأشكال <span>مختلفة.</span></h1>
+          <p class="hero-description">تصفّح القمصان والأحذية الرجالي، وابحث بالاسم أو رتّب المنتجات حسب السعر والتقييم.</p>
+          <a class="primary-button" href="#collection">عرض المنتجات <span aria-hidden="true">←</span></a>
+          <div class="hero-proof"><span>استخدم البحث أو الفئات لتصفية النتائج.</span></div>
+        </div>
+
+      </section>
+
+      <section class="collection page-shell" id="collection" aria-labelledby="collection-title">
+        <div class="section-heading">
+          <div><p class="eyebrow"><span class="eyebrow-line"></span> مجموعتنا</p><h2 id="collection-title">تسوّق حسب اختيارك</h2></div>
+          <label class="sort-control" for="sort-select"><span>ترتيب حسب</span>
+            <select id="sort-select" aria-label="ترتيب المنتجات">
+              <option value="featured">الأكثر ملاءمة</option>
+              <option value="price-low">السعر: من الأقل</option>
+              <option value="price-high">السعر: من الأعلى</option>
+              <option value="rating">الأعلى تقييمًا</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="category-row" id="category-list" aria-label="تصفية حسب الفئة">
+          <span class="category-loading">جارٍ تحميل الفئات...</span>
+        </div>
+        <div class="results-bar"><p id="results-count" aria-live="polite">نجهّز لك المنتجات...</p><button class="clear-filters" id="clear-filters" type="button" hidden>مسح التصفية <span aria-hidden="true">×</span></button></div>
+        <div class="product-grid" id="product-grid" aria-live="polite" aria-busy="true"></div>
+      </section>
+
+      <section class="about-strip page-shell" id="about" aria-label="مميزات المتجر">
+        <div><span class="about-icon">⌕</span><p><strong>بحث سريع</strong><small>ابحث باسم المنتج</small></p></div>
+        <div><span class="about-icon">♡</span><p><strong>قائمة المفضلة</strong><small>احفظ المنتجات التي أعجبتك</small></p></div>
+        <div><span class="about-icon">▱</span><p><strong>سلة التسوق</strong><small>عدّل الكمية في أي وقت</small></p></div>
+      </section>
+    </main>
+
+    <footer class="site-footer"><a class="footer-brand" href="#top">متجري</a><p>مشروع تدريبي — المنتجات من DummyJSON.</p><a href="#top">العودة للأعلى ↑</a></footer>
+
+    <div class="drawer-backdrop" id="drawer-backdrop" hidden></div>
+    <aside class="cart-drawer" id="cart-drawer" aria-labelledby="cart-title" aria-hidden="true" inert>
+      <div class="drawer-header"><div><p class="eyebrow">اختياراتك</p><h2 id="cart-title">سلة التسوق <span id="drawer-count">(0)</span></h2></div><button class="close-drawer" id="close-drawer" type="button" aria-label="إغلاق السلة">×</button></div>
+      <div class="cart-items" id="cart-items"></div>
+      <div class="cart-empty" id="cart-empty"><span>♡</span><h3>سلتك تنتظر اختياراتك</h3><p>أضف المنتجات التي أعجبتك لتظهر هنا.</p><button id="continue-shopping" type="button">تابع التسوق</button></div>
+      <div class="cart-footer" id="cart-footer" hidden>
+        <div class="subtotal-row"><span>الإجمالي التقديري</span><strong id="cart-subtotal">$0.00</strong></div>
+        <p>الأسعار بالدولار الأميركي. هذه واجهة تجريبية ولا تُرسل طلبات حقيقية.</p>
+        <button class="checkout-button" id="checkout-button" type="button">إتمام الطلب <span>←</span></button>
+      </div>
+    </aside>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
